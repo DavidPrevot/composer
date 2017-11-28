@@ -62,7 +62,7 @@ class PerforceDownloaderTest extends TestCase
 
     protected function getMockProcessExecutor()
     {
-        return $this->getMock('Composer\Util\ProcessExecutor');
+        return $this->createMock('Composer\Util\ProcessExecutor');
     }
 
     protected function getConfig()
@@ -76,12 +76,12 @@ class PerforceDownloaderTest extends TestCase
 
     protected function getMockIoInterface()
     {
-        return $this->getMock('Composer\IO\IOInterface');
+        return $this->createMock('Composer\IO\IOInterface');
     }
 
     protected function getMockPackageInterface(VcsRepository $repository)
     {
-        $package = $this->getMock('Composer\Package\PackageInterface');
+        $package = $this->createMock('Composer\Package\PackageInterface');
         $package->expects($this->any())->method('getRepository')->will($this->returnValue($repository));
 
         return $package;
@@ -97,7 +97,7 @@ class PerforceDownloaderTest extends TestCase
         $class = 'Composer\Repository\VcsRepository';
         $methods = array('getRepoConfig');
         $args = array($repoConfig, $io, $config);
-        $repository = $this->getMock($class, $methods, $args);
+        $repository = $this->createMock($class, $methods, $args);
         $repository->expects($this->any())->method('getRepoConfig')->will($this->returnValue($repoConfig));
 
         return $repository;

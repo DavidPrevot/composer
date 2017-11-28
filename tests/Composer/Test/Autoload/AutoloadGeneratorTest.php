@@ -92,7 +92,7 @@ class AutoloadGeneratorTest extends TestCase
         $this->vendorDir = $this->workingDir.DIRECTORY_SEPARATOR.'composer-test-autoload';
         $this->ensureDirectoryExistsAndClear($this->vendorDir);
 
-        $this->config = $this->getMock('Composer\Config');
+        $this->config = $this->createMock('Composer\Config');
 
         $this->configValueMap = array(
             'vendor-dir' => function () use ($that) {
@@ -127,7 +127,7 @@ class AutoloadGeneratorTest extends TestCase
 
                 return $that->vendorDir.'/'.$package->getName() . ($targetDir ? '/'.$targetDir : '');
             }));
-        $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
+        $this->repository = $this->createMock('Composer\Repository\InstalledRepositoryInterface');
 
         $this->eventDispatcher = $this->getMockBuilder('Composer\EventDispatcher\EventDispatcher')
             ->disableOriginalConstructor()

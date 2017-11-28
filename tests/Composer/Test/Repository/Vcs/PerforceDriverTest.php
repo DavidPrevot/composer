@@ -91,12 +91,12 @@ class PerforceDriverTest extends TestCase
 
     protected function getMockIOInterface()
     {
-        return $this->getMock('Composer\IO\IOInterface');
+        return $this->createMock('Composer\IO\IOInterface');
     }
 
     protected function getMockProcessExecutor()
     {
-        return $this->getMock('Composer\Util\ProcessExecutor');
+        return $this->createMock('Composer\Util\ProcessExecutor');
     }
 
     protected function getMockRemoteFilesystem()

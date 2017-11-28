@@ -35,8 +35,8 @@ class CacheTest extends TestCase
 
         $this->finder = $this->getMockBuilder('Symfony\Component\Finder\Finder')->disableOriginalConstructor()->getMock();
 
-        $io = $this->getMock('Composer\IO\IOInterface');
-        $this->cache = $this->getMock(
+        $io = $this->createMock('Composer\IO\IOInterface');
+        $this->cache = $this->createMock(
             'Composer\Cache',
             array('getFinder'),
             array($io, $this->root)

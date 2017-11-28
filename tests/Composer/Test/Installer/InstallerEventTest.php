@@ -18,13 +18,13 @@ class InstallerEventTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetter()
     {
-        $composer = $this->getMock('Composer\Composer');
-        $io = $this->getMock('Composer\IO\IOInterface');
-        $policy = $this->getMock('Composer\DependencyResolver\PolicyInterface');
+        $composer = $this->createMock('Composer\Composer');
+        $io = $this->createMock('Composer\IO\IOInterface');
+        $policy = $this->createMock('Composer\DependencyResolver\PolicyInterface');
         $pool = $this->getMockBuilder('Composer\DependencyResolver\Pool')->disableOriginalConstructor()->getMock();
         $installedRepo = $this->getMockBuilder('Composer\Repository\CompositeRepository')->disableOriginalConstructor()->getMock();
         $request = $this->getMockBuilder('Composer\DependencyResolver\Request')->disableOriginalConstructor()->getMock();
-        $operations = array($this->getMock('Composer\DependencyResolver\Operation\OperationInterface'));
+        $operations = array($this->createMock('Composer\DependencyResolver\Operation\OperationInterface'));
         $event = new InstallerEvent('EVENT_NAME', $composer, $io, true, $policy, $pool, $installedRepo, $request, $operations);
 
         $this->assertSame('EVENT_NAME', $event->getName());

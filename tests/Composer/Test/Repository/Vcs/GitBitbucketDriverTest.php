@@ -35,7 +35,7 @@ class GitBitbucketDriverTest extends TestCase
 
     protected function setUp()
     {
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->io = $this->createMock('Composer\IO\IOInterface');
 
         $this->home = $this->getUniqueTmpDirectory();
 

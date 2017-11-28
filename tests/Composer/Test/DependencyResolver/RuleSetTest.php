@@ -162,6 +162,6 @@ class RuleSetTest extends TestCase
     {
         return $this->getMockBuilder('Composer\DependencyResolver\Rule')
             ->disableOriginalConstructor()
-            ->getMock();
+            ->createMock();
     }
 }

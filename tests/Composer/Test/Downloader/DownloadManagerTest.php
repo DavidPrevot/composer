@@ -21,8 +21,8 @@ class DownloadManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->filesystem = $this->getMock('Composer\Util\Filesystem');
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->filesystem = $this->createMock('Composer\Util\Filesystem');
+        $this->io = $this->createMock('Composer\IO\IOInterface');
     }
 
     public function testSetGetDownloader()

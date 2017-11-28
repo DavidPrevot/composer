@@ -30,7 +30,7 @@ class ArrayDumperTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->dumper = new ArrayDumper();
-        $this->package = $this->getMock('Composer\Package\CompletePackageInterface');
+        $this->package = $this->createMock('Composer\Package\CompletePackageInterface');
         $this->packageExpects('getTransportOptions', array());
     }
 
@@ -55,7 +55,7 @@ class ArrayDumperTest extends \PHPUnit_Framework_TestCase
 
     public function testRootPackage()
     {
-        $this->package = $this->getMock('Composer\Package\RootPackageInterface');
+        $this->package = $this->createMock('Composer\Package\RootPackageInterface');
 
         $this
             ->packageExpects('getMinimumStability', 'dev')
@@ -91,7 +91,7 @@ class ArrayDumperTest extends \PHPUnit_Framework_TestCase
      */
     public function testKeys($key, $value, $method = null, $expectedValue = null)
     {
-        $this->package = $this->getMock('Composer\Package\RootPackageInterface');
+        $this->package = $this->createMock('Composer\Package\RootPackageInterface');
 
         $this->packageExpects('get'.ucfirst($method ?: $key), $value);
         $this->packageExpects('isAbandoned', $value);

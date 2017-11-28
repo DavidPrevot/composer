@@ -31,7 +31,7 @@ class ComposerRepositoryTest extends TestCase
             'url' => 'http://example.org',
         );
 
-        $repository = $this->getMock(
+        $repository = $this->createMock(
             'Composer\Repository\ComposerRepository',
             array(
                 'loadRootServerFile',
@@ -146,7 +146,7 @@ class ComposerRepositoryTest extends TestCase
                 ),
             )));
 
-        $pool = $this->getMock('Composer\DependencyResolver\Pool');
+        $pool = $this->createMock('Composer\DependencyResolver\Pool');
         $pool->expects($this->any())
             ->method('isPackageAcceptable')
             ->will($this->returnValue(true));

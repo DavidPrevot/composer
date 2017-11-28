@@ -45,13 +45,13 @@ class SvnDriverTest extends TestCase
      */
     public function testWrongCredentialsInUrl()
     {
-        $console = $this->getMock('Composer\IO\IOInterface');
+        $console = $this->createMock('Composer\IO\IOInterface');
 
         $output = "svn: OPTIONS of 'https://corp.svn.local/repo':";
         $output .= " authorization failed: Could not authenticate to server:";
         $output .= " rejected Basic challenge (https://corp.svn.local/)";
 
-        $process = $this->getMock('Composer\Util\ProcessExecutor');
+        $process = $this->createMock('Composer\Util\ProcessExecutor');
         $process->expects($this->at(1))
             ->method('execute')
             ->will($this->returnValue(1));
@@ -95,7 +95,7 @@ class SvnDriverTest extends TestCase
     public function testSupport($url, $assertion)
     {
         $config = new Config();
-        $result = SvnDriver::supports($this->getMock('Composer\IO\IOInterface'), $config, $url);
+        $result = SvnDriver::supports($this->createMock('Composer\IO\IOInterface'), $config, $url);
         $this->assertEquals($assertion, $result);
     }
 }

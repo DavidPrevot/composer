@@ -22,9 +22,9 @@ class MetapackageInstallerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
+        $this->repository = $this->createMock('Composer\Repository\InstalledRepositoryInterface');
 
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->io = $this->createMock('Composer\IO\IOInterface');
 
         $this->installer = new MetapackageInstaller();
     }

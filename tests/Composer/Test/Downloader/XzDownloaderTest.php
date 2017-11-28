@@ -46,7 +46,7 @@ class XzDownloaderTest extends TestCase
 
     public function testErrorMessages()
     {
-        $packageMock = $this->getMock('Composer\Package\PackageInterface');
+        $packageMock = $this->createMock('Composer\Package\PackageInterface');
         $packageMock->expects($this->any())
             ->method('getDistUrl')
             ->will($this->returnValue($distUrl = 'file://'.__FILE__))
@@ -60,8 +60,8 @@ class XzDownloaderTest extends TestCase
             ->will($this->returnValue(array()))
         ;
 
-        $io = $this->getMock('Composer\IO\IOInterface');
-        $config = $this->getMock('Composer\Config');
+        $io = $this->createMock('Composer\IO\IOInterface');
+        $config = $this->createMock('Composer\Config');
         $config->expects($this->any())
             ->method('get')
             ->with('vendor-dir')

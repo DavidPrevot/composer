@@ -24,7 +24,7 @@ class SuggestedPackagesReporterTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->io = $this->createMock('Composer\IO\IOInterface');
 
         $this->suggestedPackagesReporter = new SuggestedPackagesReporter($this->io);
     }
@@ -187,9 +187,9 @@ class SuggestedPackagesReporterTest extends \PHPUnit_Framework_TestCase
      */
     public function testOutputSkipInstalledPackages()
     {
-        $repository = $this->getMock('Composer\Repository\RepositoryInterface');
-        $package1 = $this->getMock('Composer\Package\PackageInterface');
-        $package2 = $this->getMock('Composer\Package\PackageInterface');
+        $repository = $this->createMock('Composer\Repository\RepositoryInterface');
+        $package1 = $this->createMock('Composer\Package\PackageInterface');
+        $package2 = $this->createMock('Composer\Package\PackageInterface');
 
         $package1->expects($this->once())
             ->method('getNames')
@@ -221,7 +221,7 @@ class SuggestedPackagesReporterTest extends \PHPUnit_Framework_TestCase
      */
     public function testOutputNotGettingInstalledPackagesWhenNoSuggestions()
     {
-        $repository = $this->getMock('Composer\Repository\RepositoryInterface');
+        $repository = $this->createMock('Composer\Repository\RepositoryInterface');
         $repository->expects($this->exactly(0))
             ->method('getPackages');
 

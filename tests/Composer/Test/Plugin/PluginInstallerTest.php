@@ -80,7 +80,7 @@ class PluginInstallerTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
+        $this->repository = $this->createMock('Composer\Repository\InstalledRepositoryInterface');
 
         $rm = $this->getMockBuilder('Composer\Repository\RepositoryManager')
             ->disableOriginalConstructor()
@@ -89,14 +89,14 @@ class PluginInstallerTest extends TestCase
             ->method('getLocalRepository')
             ->will($this->returnValue($this->repository));
 
-        $im = $this->getMock('Composer\Installer\InstallationManager');
+        $im = $this->createMock('Composer\Installer\InstallationManager');
         $im->expects($this->any())
             ->method('getInstallPath')
             ->will($this->returnCallback(function ($package) {
                 return __DIR__.'/Fixtures/'.$package->getPrettyName();
             }));
 
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->io = $this->createMock('Composer\IO\IOInterface');
 
         $dispatcher = $this->getMockBuilder('Composer\EventDispatcher\EventDispatcher')->disableOriginalConstructor()->getMock();
         $this->autoloadGenerator = new AutoloadGenerator($dispatcher);

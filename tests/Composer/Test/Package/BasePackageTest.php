@@ -19,7 +19,7 @@ class BasePackageTest extends \PHPUnit_Framework_TestCase
     public function testSetSameRepository()
     {
         $package = $this->getMockForAbstractClass('Composer\Package\BasePackage', array('foo'));
-        $repository = $this->getMock('Composer\Repository\RepositoryInterface');
+        $repository = $this->createMock('Composer\Repository\RepositoryInterface');
 
         $package->setRepository($repository);
         try {
@@ -36,8 +36,8 @@ class BasePackageTest extends \PHPUnit_Framework_TestCase
     {
         $package = $this->getMockForAbstractClass('Composer\Package\BasePackage', array('foo'));
 
-        $package->setRepository($this->getMock('Composer\Repository\RepositoryInterface'));
-        $package->setRepository($this->getMock('Composer\Repository\RepositoryInterface'));
+        $package->setRepository($this->createMock('Composer\Repository\RepositoryInterface'));
+        $package->setRepository($this->createMock('Composer\Repository\RepositoryInterface'));
     }
 
     /**

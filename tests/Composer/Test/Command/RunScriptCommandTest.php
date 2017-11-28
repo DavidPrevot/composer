@@ -28,7 +28,7 @@ class RunScriptCommandTest extends TestCase
     {
         $scriptName = 'testScript';
 
-        $input = $this->getMock('Symfony\Component\Console\Input\InputInterface');
+        $input = $this->createMock('Symfony\Component\Console\Input\InputInterface');
         $input
             ->method('getOption')
             ->will($this->returnValueMap(array(
@@ -48,7 +48,7 @@ class RunScriptCommandTest extends TestCase
             ->with('command')
             ->willReturn(false);
 
-        $output = $this->getMock('Symfony\Component\Console\Output\OutputInterface');
+        $output = $this->createMock('Symfony\Component\Console\Output\OutputInterface');
 
         $expectedDevMode = $dev || !$noDev;
 

@@ -57,8 +57,8 @@ class LibraryInstallerTest extends TestCase
             ->getMock();
         $this->composer->setDownloadManager($this->dm);
 
-        $this->repository = $this->getMock('Composer\Repository\InstalledRepositoryInterface');
-        $this->io = $this->getMock('Composer\IO\IOInterface');
+        $this->repository = $this->createMock('Composer\Repository\InstalledRepositoryInterface');
+        $this->io = $this->createMock('Composer\IO\IOInterface');
     }
 
     protected function tearDown()

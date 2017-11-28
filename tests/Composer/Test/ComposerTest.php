@@ -20,7 +20,7 @@ class ComposerTest extends TestCase
     public function testSetGetPackage()
     {
         $composer = new Composer();
-        $package = $this->getMock('Composer\Package\RootPackageInterface');
+        $package = $this->createMock('Composer\Package\RootPackageInterface');
         $composer->setPackage($package);
 
         $this->assertSame($package, $composer->getPackage());
@@ -47,8 +47,8 @@ class ComposerTest extends TestCase
     public function testSetGetDownloadManager()
     {
         $composer = new Composer();
-        $io = $this->getMock('Composer\IO\IOInterface');
-        $manager = $this->getMock('Composer\Downloader\DownloadManager', array(), array($io));
+        $io = $this->createMock('Composer\IO\IOInterface');
+        $manager = $this->createMock('Composer\Downloader\DownloadManager', array(), array($io));
         $composer->setDownloadManager($manager);
 
         $this->assertSame($manager, $composer->getDownloadManager());
@@ -57,7 +57,7 @@ class ComposerTest extends TestCase
     public function testSetGetInstallationManager()
     {
         $composer = new Composer();
-        $manager = $this->getMock('Composer\Installer\InstallationManager');
+        $manager = $this->createMock('Composer\Installer\InstallationManager');
         $composer->setInstallationManager($manager);
 
         $this->assertSame($manager, $composer->getInstallationManager());

@@ -20,8 +20,8 @@ class RepositoryFactoryTest extends TestCase
     public function testManagerWithAllRepositoryTypes()
     {
         $manager = RepositoryFactory::manager(
-            $this->getMock('Composer\IO\IOInterface'),
-            $this->getMock('Composer\Config')
+            $this->createMock('Composer\IO\IOInterface'),
+            $this->createMock('Composer\Config')
         );
 
         $ref = new \ReflectionProperty($manager, 'repositoryClasses');

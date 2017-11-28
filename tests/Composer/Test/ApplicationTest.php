@@ -22,8 +22,8 @@ class ApplicationTest extends TestCase
     {
         $application = new Application;
 
-        $inputMock = $this->getMock('Symfony\Component\Console\Input\InputInterface');
-        $outputMock = $this->getMock('Symfony\Component\Console\Output\OutputInterface');
+        $inputMock = $this->createMock('Symfony\Component\Console\Input\InputInterface');
+        $outputMock = $this->createMock('Symfony\Component\Console\Output\OutputInterface');
 
         $index = 0;
         $inputMock->expects($this->at($index++))
@@ -75,8 +75,8 @@ class ApplicationTest extends TestCase
 
         $application->add(new \Composer\Command\SelfUpdateCommand);
 
-        $inputMock = $this->getMock('Symfony\Component\Console\Input\InputInterface');
-        $outputMock = $this->getMock('Symfony\Component\Console\Output\OutputInterface');
+        $inputMock = $this->createMock('Symfony\Component\Console\Input\InputInterface');
+        $outputMock = $this->createMock('Symfony\Component\Console\Output\OutputInterface');
 
         $index = 0;
         $inputMock->expects($this->at($index++))

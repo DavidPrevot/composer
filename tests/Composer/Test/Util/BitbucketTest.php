@@ -52,7 +52,7 @@ class BitbucketTest extends \PHPUnit_Framework_TestCase
             ->getMock()
         ;
 
-        $this->config = $this->getMock('Composer\Config');
+        $this->config = $this->createMock('Composer\Config');
 
         $this->time = time();
 
@@ -257,7 +257,7 @@ class BitbucketTest extends \PHPUnit_Framework_TestCase
 
     private function setExpectationsForStoringAccessToken($removeBasicAuth = false)
     {
-        $configSourceMock = $this->getMock('Composer\Config\ConfigSourceInterface');
+        $configSourceMock = $this->createMock('Composer\Config\ConfigSourceInterface');
         $this->config->expects($this->once())
             ->method('getConfigSource')
             ->willReturn($configSourceMock);
@@ -266,7 +266,7 @@ class BitbucketTest extends \PHPUnit_Framework_TestCase
             ->method('removeConfigSetting')
             ->with('bitbucket-oauth.' . $this->origin);
 
-        $authConfigSourceMock = $this->getMock('Composer\Config\ConfigSourceInterface');
+        $authConfigSourceMock = $this->createMock('Composer\Config\ConfigSourceInterface');
         $this->config->expects($this->atLeastOnce())
             ->method('getAuthConfigSource')
             ->willReturn($authConfigSourceMock);

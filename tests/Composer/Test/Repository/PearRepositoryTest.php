@@ -127,13 +127,13 @@ class PearRepositoryTest extends TestCase
     private function createRepository($repoConfig)
     {
         $ioInterface = $this->getMockBuilder('Composer\IO\IOInterface')
-            ->getMock();
+            ->createMock();
 
         $config = new \Composer\Config();
 
         $this->remoteFilesystem = $this->getMockBuilder('Composer\Util\RemoteFilesystem')
             ->disableOriginalConstructor()
-            ->getMock();
+            ->createMock();
 
         $this->repository = new PearRepository($repoConfig, $ioInterface, $config, null);
     }

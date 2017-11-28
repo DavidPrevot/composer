@@ -125,7 +125,7 @@ class GitLabTest extends \PHPUnit_Framework_TestCase
 
     private function getConfigMock()
     {
-        return $this->getMock('Composer\Config');
+        return $this->createMock('Composer\Config');
     }
 
     private function getRemoteFilesystemMock()
