@@ -51,14 +51,11 @@ class EventDispatcherTest extends TestCase
         $dispatcher->dispatchScript(ScriptEvents::POST_INSTALL_CMD, false);
     }
 
-    /**
-     * @expectedException PHPUnit_Framework_Error_Deprecated
-     */
     public function testDispatcherCanConvertScriptEventToCommandEventForListener()
     {
         $io = $this->createMock('Composer\IO\IOInterface');
         $dispatcher = $this->getDispatcherStubForListenersTest(array(
-            'Composer\Test\EventDispatcher\EventDispatcherTest::expectsCommandEvent',
+            'Composer\Test\EventDispatcher\EventDispatcherTest::expectsEvent',
         ), $io);
 
         $this->assertEquals(1, $dispatcher->dispatchScript(ScriptEvents::POST_INSTALL_CMD, false));
@@ -424,7 +421,7 @@ class EventDispatcherTest extends TestCase
         throw new \RuntimeException();
     }
 
-    public static function expectsCommandEvent(CommandEvent $event)
+    public static function expectsEvent(Event $event)
     {
         return false;
     }
