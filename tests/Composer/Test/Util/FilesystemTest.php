@@ -292,7 +292,7 @@ class FilesystemTest extends TestCase
         if (!defined('PHP_WINDOWS_VERSION_BUILD')) {
             $this->assertFalse($fs->isJunction($this->workingDir));
             $this->assertFalse($fs->removeJunction($this->workingDir));
-            $this->setExpectedException('LogicException', 'not available on non-Windows platform');
+            $this->expectException('LogicException', 'not available on non-Windows platform');
         }
 
         $target = $this->workingDir . '/real/../real/nesting';

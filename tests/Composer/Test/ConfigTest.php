@@ -237,7 +237,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
      */
     public function testProhibitedUrlsThrowException($url)
     {
-        $this->setExpectedException(
+        $this->expectException(
             'Composer\Downloader\TransportException',
             'Your configuration does not allow connections to ' . $url
         );

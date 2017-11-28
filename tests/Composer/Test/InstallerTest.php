@@ -160,7 +160,7 @@ class InstallerTest extends TestCase
         // Prepare for exceptions
         if (!is_int($expectResult)) {
             $normalizedOutput = rtrim(str_replace("\n", PHP_EOL, $expect));
-            $this->setExpectedException($expectResult, $normalizedOutput);
+            $this->expectException($expectResult, $normalizedOutput);
         }
 
         // Create Composer mock object according to configuration

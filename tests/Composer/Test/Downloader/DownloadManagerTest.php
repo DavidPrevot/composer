@@ -33,7 +33,7 @@ class DownloadManagerTest extends \PHPUnit_Framework_TestCase
         $manager->setDownloader('test', $downloader);
         $this->assertSame($downloader, $manager->getDownloader('test'));
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $manager->getDownloader('unregistered');
     }
 
@@ -47,7 +47,7 @@ class DownloadManagerTest extends \PHPUnit_Framework_TestCase
 
         $manager = new DownloadManager($this->io, false, $this->filesystem);
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         $manager->getDownloaderForInstalledPackage($package);
     }
@@ -113,7 +113,7 @@ class DownloadManagerTest extends \PHPUnit_Framework_TestCase
             ->with('git')
             ->will($this->returnValue($downloader));
 
-        $this->setExpectedException('LogicException');
+        $this->expectException('LogicException');
 
         $manager->getDownloaderForInstalledPackage($package);
     }
@@ -179,7 +179,7 @@ class DownloadManagerTest extends \PHPUnit_Framework_TestCase
             ->with('pear')
             ->will($this->returnValue($downloader));
 
-        $this->setExpectedException('LogicException');
+        $this->expectException('LogicException');
 
         $manager->getDownloaderForInstalledPackage($package);
     }
@@ -303,7 +303,7 @@ class DownloadManagerTest extends \PHPUnit_Framework_TestCase
 
         $manager = new DownloadManager($this->io, false, $this->filesystem);
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $manager->download($package, 'target_dir');
     }
 
@@ -535,7 +535,7 @@ class DownloadManagerTest extends \PHPUnit_Framework_TestCase
         $manager = new DownloadManager($this->io, false, $this->filesystem);
         $manager->setPreferSource(true);
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $manager->download($package, 'target_dir');
     }
 

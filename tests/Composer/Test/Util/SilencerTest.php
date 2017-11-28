@@ -51,7 +51,7 @@ class SilencerTest extends \PHPUnit_Framework_TestCase
     public function testSilencedException()
     {
         $verification = microtime();
-        $this->setExpectedException('\RuntimeException', $verification);
+        $this->expectException('\RuntimeException', $verification);
         Silencer::call(function () use ($verification) {
             throw new \RuntimeException($verification);
         });

@@ -25,7 +25,7 @@ class ErrorHandlerTest extends TestCase
      */
     public function testErrorHandlerCaptureNotice()
     {
-        $this->setExpectedException('\ErrorException', 'Undefined index: baz');
+        $this->expectException('\ErrorException', 'Undefined index: baz');
 
         ErrorHandler::register();
 
@@ -38,7 +38,7 @@ class ErrorHandlerTest extends TestCase
      */
     public function testErrorHandlerCaptureWarning()
     {
-        $this->setExpectedException('\ErrorException', 'array_merge');
+        $this->expectException('\ErrorException', 'array_merge');
 
         ErrorHandler::register();
 

@@ -55,7 +55,7 @@ class RepositoryManagerTest extends TestCase
     public function testRepoCreation($type, $options, $exception = null)
     {
         if ($exception) {
-            $this->setExpectedException($exception);
+            $this->expectException($exception);
         }
 
         $rm = new RepositoryManager(

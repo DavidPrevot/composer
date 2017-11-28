@@ -64,7 +64,7 @@ class MetapackageInstallerTest extends \PHPUnit_Framework_TestCase
 
         $this->installer->update($this->repository, $initial, $target);
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         $this->installer->update($this->repository, $initial, $target);
     }
@@ -86,7 +86,7 @@ class MetapackageInstallerTest extends \PHPUnit_Framework_TestCase
 
         $this->installer->uninstall($this->repository, $package);
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         $this->installer->uninstall($this->repository, $package);
     }

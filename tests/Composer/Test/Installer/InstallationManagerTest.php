@@ -40,7 +40,7 @@ class InstallationManagerTest extends \PHPUnit_Framework_TestCase
         $manager->addInstaller($installer);
         $this->assertSame($installer, $manager->getInstaller('vendor'));
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $manager->getInstaller('unregistered');
     }
 

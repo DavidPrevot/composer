@@ -78,7 +78,7 @@ class GitBitbucketDriverTest extends TestCase
 
     public function testGetRootIdentifierWrongScmType()
     {
-        $this->setExpectedException(
+        $this->expectException(
             '\RuntimeException',
             'https://bitbucket.org/user/repo.git does not appear to be a git repository, use https://bitbucket.org/user/repo if this is a mercurial bitbucket repository'
         );

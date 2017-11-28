@@ -444,7 +444,7 @@ class SolverTest extends TestCase
         $this->request->install('A');
 
         // must explicitly pick the provider, so error in this case
-        $this->setExpectedException('Composer\DependencyResolver\SolverProblemsException');
+        $this->expectException('Composer\DependencyResolver\SolverProblemsException');
         $this->solver->solve($this->request);
     }
 
@@ -477,7 +477,7 @@ class SolverTest extends TestCase
 
         $this->request->install('A');
 
-        $this->setExpectedException('Composer\DependencyResolver\SolverProblemsException');
+        $this->expectException('Composer\DependencyResolver\SolverProblemsException');
         $this->solver->solve($this->request);
     }
 
@@ -648,7 +648,7 @@ class SolverTest extends TestCase
 
         $this->request->install('C', $this->getVersionConstraint('==', '2.0.0.0-dev'));
 
-        $this->setExpectedException('Composer\DependencyResolver\SolverProblemsException');
+        $this->expectException('Composer\DependencyResolver\SolverProblemsException');
 
         $this->solver->solve($this->request);
     }

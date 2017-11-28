@@ -48,7 +48,7 @@ class LockerTest extends \PHPUnit_Framework_TestCase
             ->method('exists')
             ->will($this->returnValue(false));
 
-        $this->setExpectedException('LogicException');
+        $this->expectException('LogicException');
 
         $locker->getLockedRepository();
     }
@@ -167,7 +167,7 @@ class LockerTest extends \PHPUnit_Framework_TestCase
             ->method('getPrettyName')
             ->will($this->returnValue('pkg1'));
 
-        $this->setExpectedException('LogicException');
+        $this->expectException('LogicException');
 
         $locker->setLockData(array($package1), array(), array(), array(), array(), 'dev', array(), false, false, array());
     }

@@ -390,7 +390,7 @@ class EventDispatcherTest extends TestCase
             ->method('writeError')
             ->with($this->equalTo('<error>Script '.$code.' handling the post-install-cmd event returned with error code 1</error>'));
 
-        $this->setExpectedException('RuntimeException');
+        $this->expectException('RuntimeException');
         $dispatcher->dispatchScript(ScriptEvents::POST_INSTALL_CMD, false);
     }
 
